@@ -50,25 +50,74 @@ function editExpense(index) {
   removeExpense(index);
 }
 
+// function displayExpenses(expenses) {
+//   const expenseList = document.getElementById("expenseList");
+//   expenseList.innerHTML = "";
+//   expenses.forEach((expense, index) => {
+//     const listItem = document.createElement("li");
+//     listItem.textContent = `${expense.Amount} - ${expense.Description} - ${expense.Category}`;
+//     listItem.style.color = "blue";
+//     const deleteButton = document.createElement("button");
+//     deleteButton.textContent = "Delete";
+//     deleteButton.classList.add("btn", "btn-danger", "mx-2");
+//     deleteButton.addEventListener("click", () => {
+//       removeExpense(index);
+//     });
+//     listItem.appendChild(deleteButton);
+//     const editButton = document.createElement("button");
+//     editButton.textContent = "Edit";
+//     editButton.classList.add("btn", "btn-primary");
+//     editButton.addEventListener("click", () => {
+//       editExpense(index);
+//     });
+//     listItem.appendChild(editButton);
+//     expenseList.appendChild(listItem);
+//   });
+// }
+
 function displayExpenses(expenses) {
   const expenseList = document.getElementById("expenseList");
-  expenseList.innerHTML = "";
+  expenseList.innerHTML = ""; // Clear previous content
+
   expenses.forEach((expense, index) => {
-    const listItem = document.createElement("li");
-    listItem.textContent = `${expense.Amount} - ${expense.Description} - ${expense.Category}`;
+    const row = document.createElement("tr");
+
+    // Create table cells for each expense property
+    const amountCell = document.createElement("td");
+    amountCell.textContent = expense.Amount;
+    row.appendChild(amountCell);
+
+    const descriptionCell = document.createElement("td");
+    descriptionCell.textContent = expense.Description;
+    row.appendChild(descriptionCell);
+
+    const categoryCell = document.createElement("td");
+    categoryCell.textContent = expense.Category;
+    row.appendChild(categoryCell);
+
+    // Create buttons for actions
+    const actionsCell = document.createElement("td");
+
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
+    deleteButton.classList.add("btn", "btn-danger", "me-2");
     deleteButton.addEventListener("click", () => {
       removeExpense(index);
     });
-    listItem.appendChild(deleteButton);
+    actionsCell.appendChild(deleteButton);
+
     const editButton = document.createElement("button");
     editButton.textContent = "Edit";
+    editButton.classList.add("btn", "btn-primary");
     editButton.addEventListener("click", () => {
       editExpense(index);
     });
-    listItem.appendChild(editButton);
-    expenseList.appendChild(listItem);
+    actionsCell.appendChild(editButton);
+
+    row.appendChild(actionsCell);
+
+    // Append the row to the table body
+    expenseList.appendChild(row);
   });
 }
 
