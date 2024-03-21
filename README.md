@@ -2,6 +2,13 @@
 
 Expense Tracker is a simple web application built with HTML, CSS, and JavaScript that helps users keep track of their expenses. It allows users to record their expenses by entering the amount, description, and category, and provides functionalities to edit or delete expenses as needed.
 
+### Live Demo
+
+You can try out the live demo [here](https://trackingexpenseapp.netlify.app/).
+
+![image](https://github.com/soubhagyasethy/expense-tracker-app/assets/82697602/3142e9f0-280b-4b20-a499-2bad0f5405a8)
+
+
 ### Features
 
 - **Add Expenses:** Users can add new expenses by entering the amount, description, and selecting a category.
